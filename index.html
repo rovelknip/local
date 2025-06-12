@@ -104,49 +104,31 @@
         <div class="content-div">
             <div id="textToCopy3" style="color: white;">
                 #KMC
+#k Mean Clustering
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
 
-                # Import necessary libraries
-                import pandas as pd
-                import matplotlib.pyplot as plt
-                from sklearn.cluster import KMeans
+# Load and select features
+data = pd.read_csv('KMC.csv')
+print(data.head())
+X = data[['Annual_Income', 'Spending_Score']]
 
-                # Load CSV data
-                print("Loading data for K-Means Clustering...")
-                data = pd.read_csv('KMC.csv')  # Replace with your actual CSV file
+# Fit K-Means with k=3
+kmeans = KMeans(n_clusters=3, random_state=42)
+data['Cluster'] = kmeans.fit_predict(X)
 
-                # Preprocess Data (select features)
-                X = data[['Annual_Income', 'Spending_Score']]
+# Elbow Method
+inertia = [KMeans(n_clusters=k, random_state=42).fit(X).inertia_ for k in range(1, 11)]
+plt.plot(range(1, 11), inertia, marker='o')
+plt.title('Elbow Method'); plt.xlabel('Clusters'); plt.ylabel('Inertia'); plt.grid(); plt.show()
 
-                # Apply K-Means Clustering
-                kmeans = KMeans(n_clusters=3, random_state=42)
-                kmeans.fit(X)
-                data['Cluster'] = kmeans.labels_
+# Cluster Visualization
+plt.scatter(X['Annual_Income'], X['Spending_Score'], c=data['Cluster'], cmap='viridis')
+plt.title('K-Means Clustering'); plt.xlabel('Annual Income'); plt.ylabel('Spending Score')
+plt.colorbar(label='Cluster'); plt.grid(); plt.show()
 
-                # Determine Optimal K using the Elbow Method
-                inertia = []
-                for k in range(1, 11):
-                    km = KMeans(n_clusters=k, random_state=42)
-                    km.fit(X)
-                    inertia.append(km.inertia_)
-
-                plt.figure(figsize=(8, 4))
-                plt.plot(range(1, 11), inertia, marker='o')
-                plt.xlabel('Number of clusters')
-                plt.ylabel('Inertia')
-                plt.title('Elbow Method for Optimal K')
-                plt.grid(True)
-                plt.show()
-
-                # Visualize the Clusters
-                plt.figure(figsize=(8, 6))
-                plt.scatter(X['Annual_Income'], X['Spending_Score'], c=data['Cluster'], cmap='viridis')
-                plt.xlabel('Annual Income')
-                plt.ylabel('Spending Score')
-                plt.title('Customer Segmentation using K-Means')
-                plt.colorbar(label='Cluster')
-                plt.grid(True)
-                plt.show()
-            </div>
+               </div>
         </div>
 
         <div class="content-div">
