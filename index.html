@@ -20,199 +20,123 @@
     <div class="content-container">
         <div class="content-div">
             <div id="textToCopy1" style="color: white;">
-                # SLP
+!router A
+enable
+configure terminal
 
-                import numpy as np
-                
-                def step_function(x):
-                    return 1 if x >= 0 else 0
-                
-                class Perceptron:
-                    def __init__(self, input_size, learning_rate=0.1):
-                        self.weights = np.zeros(input_size + 1)  # +1 for bias
-                        self.learning_rate = learning_rate
-                
-                    def predict(self, inputs):
-                        summation = np.dot(inputs, self.weights[1:]) + self.weights[0]
-                        return step_function(summation)
-                
-                    def train(self, training_inputs, labels, epochs):
-                        for _ in range(epochs):
-                            for inputs, label in zip(training_inputs, labels):
-                                prediction = self.predict(inputs)
-                                self.weights[1:] += self.learning_rate * (label - prediction) * inputs
-                                self.weights[0] += self.learning_rate * (label - prediction)
-                
-                training_inputs = []
-                training_inputs.append(np.array([0, 0]))
-                training_inputs.append(np.array([0, 1]))
-                training_inputs.append(np.array([1, 0]))
-                training_inputs.append(np.array([1, 1]))
-                
-                labels = np.array([0, 0, 0, 1])  # AND gate
-                
-                perceptron = Perceptron(2)
-                perceptron.train(training_inputs, labels, 10)
-                
-                print("Test Results:")
-                for inputs in training_inputs:
-                    print(f"{inputs} => {perceptron.predict(inputs)}")
-                
+! Set hostname
+hostname RouterA
+
+! Assign IP to GigabitEthernet0/0 (LAN)
+interface GigabitEthernet0/0
+ip address 221.22.63.1 255.255.255.0
+no shutdown
+exit
+
+! Assign IP to GigabitEthernet0/1 (Link to Router B)
+interface GigabitEthernet0/1
+ip address 221.22.6.1 255.255.255.252
+no shutdown
+exit
+
+! Enable DHCP Service
+service dhcp
+
+! Configure DHCP Pool for local LAN
+ip dhcp pool CampusA
+network 221.22.63.0 255.255.255.0
+default-router 221.22.63.1
+dns-server 8.8.8.8
+exit
+
+! Exclude static IPs (e.g., FTP servers, printers)
+ip dhcp excluded-address 221.22.63.2 221.22.63.20
+
+! Add static route to Router B's network
+ip route 22.122.63.0 255.255.255.0 221.22.6.2
+
+end
+write memory
+
             </div>
         </div>
 
         <div class="content-div">
             <div id="textToCopy2" style="color: white;">
-                # KNN Classifier
+!Router B
 
-                    import pandas as pd
-                    from sklearn.preprocessing import LabelEncoder, StandardScaler
-                    from sklearn.neighbors import KNeighborsClassifier
+enable
+configure terminal
 
-                    # Step 1: Load the dataset
-                    data = pd.read_csv("KNN.csv")
+! Set hostname
+hostname RouterB
 
-                    # Step 2: Preprocess the Data
-                    data = data.drop("ID", axis=1)
-                    X = data.drop("Label", axis=1)
-                    y = data["Label"]
+! Assign IP to GigabitEthernet0/0 (LAN)
+interface GigabitEthernet0/0
+ip address 22.122.63.1 255.255.255.0
+no shutdown
+exit
 
-                    # Convert labels to numeric
-                    label_encoder = LabelEncoder()
-                    y = label_encoder.fit_transform(y)
+! Assign IP to GigabitEthernet0/1 (Link to Router A)
+interface GigabitEthernet0/1
+ip address 221.22.6.2 255.255.255.252
+no shutdown
+exit
 
-                    # Normalize features
-                    scaler = StandardScaler()
-                    X_scaled = scaler.fit_transform(X)
+! Enable DHCP Service
+service dhcp
 
-                    # Step 3: Train KNN Model
-                    knn = KNeighborsClassifier(n_neighbors=5, metric='manhattan', weights='distance')
-                    knn.fit(X_scaled, y)
+! Configure DHCP Pool for local LAN
+ip dhcp pool CampusB
+network 22.122.63.0 255.255.255.0
+default-router 22.122.63.1
+dns-server 8.8.8.8
+exit
 
-                    # Step 4: Make Predictions 
-                    sample = [[5.1, 3.5, 1.4]]
-                    sample_df = pd.DataFrame(sample, columns=X.columns)
-                    sample_scaled = scaler.transform(sample_df)
-                    prediction = knn.predict(sample_scaled)
+! Exclude static IPs (e.g., FTP servers, printers)
+ip dhcp excluded-address 22.122.63.2 22.122.63.20
 
-                    # Output
-                    print("Predicted Label:", label_encoder.inverse_transform(prediction))
+! Add static route to Router A's network
+ip route 221.22.63.0 255.255.255.0 221.22.6.1
+
+end
+write memory
 
             </div>
         </div>
 
         <div class="content-div">
             <div id="textToCopy3" style="color: white;">
-                #KMC
-#k Mean Clustering
-import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
 
-# Load and select features
-data = pd.read_csv('KMC.csv')
-print(data.head())
-X = data[['Annual_Income', 'Spending_Score']]
-
-# Fit K-Means with k=3
-kmeans = KMeans(n_clusters=3, random_state=42)
-data['Cluster'] = kmeans.fit_predict(X)
-
-# Elbow Method
-inertia = [KMeans(n_clusters=k, random_state=42).fit(X).inertia_ for k in range(1, 11)]
-plt.plot(range(1, 11), inertia, marker='o')
-plt.title('Elbow Method'); plt.xlabel('Clusters'); plt.ylabel('Inertia'); plt.grid(); plt.show()
-
-# Cluster Visualization
-plt.scatter(X['Annual_Income'], X['Spending_Score'], c=data['Cluster'], cmap='viridis')
-plt.title('K-Means Clustering'); plt.xlabel('Annual Income'); plt.ylabel('Spending Score')
-plt.colorbar(label='Cluster'); plt.grid(); plt.show()
-
+FTP servers and printer
+                
+Campus A (Router A’s LAN – 221.22.63.0/24):
+FTP 1: 221.22.63.2
+FTP 2: 221.22.63.3
+Printer 1: 221.22.63.4
+Printer 2: 221.22.63.5
+Subnet Mask: 255.255.255.0
+Gateway: 221.22.63.1
+                
+Campus B (Router B’s LAN – 22.122.63.0/24):
+FTP 1: 22.122.63.2
+FTP 2: 22.122.63.3
+Printer 1: 22.122.63.4
+Printer 2: 22.122.63.5
+Subnet Mask: 255.255.255.0
+Gateway: 22.122.63.1
                </div>
         </div>
 
         <div class="content-div">
             <div id="textToCopy4" style="color: white;">
-                #DT
-
-                import pandas as pd 
-                from sklearn.preprocessing import LabelEncoder 
-                from sklearn.metrics import accuracy_score, classification_report 
-                from sklearn import tree 
-                from sklearn.model_selection import train_test_split 
-
-
-                # Load the dataset 
-                df = pd.read_csv('DT.csv') 
-                # Display the first 5 rows 
-                print(df.head()) 
-
-                inputs = df.drop('salary_more_then_100k', axis='columns') 
-                target = df['salary_more_then_100k'] 
-
-
-                le_company = LabelEncoder() 
-                le_job = LabelEncoder() 
-                le_degree = LabelEncoder() 
-
-                inputs['company'] = le_company.fit_transform(inputs ['company']) 
-                inputs['job'] = le_job.fit_transform(inputs ['job']) 
-                inputs['degree'] = le_degree.fit_transform(inputs ['degree']) 
-
-
-                # Split data into train and test sets 
-                X_train, X_test, y_train, y_test = train_test_split(inputs, target, test_size=0.2, random_state=None) 
-                #Initialize and train model 
-                model = tree. DecisionTreeClassifier() 
-                model.fit(X_train, y_train)
-
-
-                # Predict on test data 
-                predictions = model.predict(X_test) 
-                # Evaluate model 
-                print("Accuracy:", accuracy_score(y_test, predictions)*100,"%")
-
-
-                input_example = pd. DataFrame ([[2, 1, 0]], columns=X_test.columns) 
-                # Predict using a DataFrame with valid feature names 
-                prediction = model.predict(input_example) 
-                print("Prediction:", prediction)
+SZABIST
             </div>
         </div>
 
         <div class="content-div">
             <div id="textToCopy5" style="color: white;">
-                #NB
-
-                import pandas as pd
-                from sklearn.model_selection import train_test_split
-                from sklearn.naive_bayes import GaussianNB
-                from sklearn.preprocessing import LabelEncoder
-                from sklearn.metrics import accuracy_score
-
-                # Step 1: Load the Dataset
-                data = pd.read_csv("iris.csv")
-
-                # Step 2: Preprocess the Data
-                X = data.drop("species", axis=1)
-                y = data["species"]
-
-                # Convert categorical labels to numbers
-                label_encoder = LabelEncoder()
-                y = label_encoder.fit_transform(y)
-
-                # Step 3: Train-Test Split
-                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-                # Step 4: Train the Naive Bayes Classifier
-                model = GaussianNB()
-                model.fit(X_train, y_train)
-
-                # Step 5: Predict and Evaluate
-                y_pred = model.predict(X_test)
-                accuracy = accuracy_score(y_test, y_pred)
-                print("Accuracy:", accuracy)
-
+                hello
             </div>
         </div>
     </div>
