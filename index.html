@@ -20,112 +20,273 @@
     <div class="content-container">
         <div class="content-div">
             <div id="textToCopy1" style="color: white;">
-!router A
-enable
-configure terminal
+import { Stack } from 'expo-router';
 
-! Set hostname
-hostname RouterA
-
-! Assign IP to GigabitEthernet0/0 (LAN)
-interface GigabitEthernet0/0
-ip address 221.22.63.1 255.255.255.0
-no shutdown
-exit
-
-! Assign IP to GigabitEthernet0/1 (Link to Router B)
-interface GigabitEthernet0/1
-ip address 221.22.6.1 255.255.255.252
-no shutdown
-exit
-
-! Enable DHCP Service
-service dhcp
-
-! Configure DHCP Pool for local LAN
-ip dhcp pool CampusA
-network 221.22.63.0 255.255.255.0
-default-router 221.22.63.1
-dns-server 8.8.8.8
-exit
-
-! Exclude static IPs (e.g., FTP servers, printers)
-ip dhcp excluded-address 221.22.63.2 221.22.63.20
-
-! Add static route to Router B's network
-ip route 22.122.63.0 255.255.255.0 221.22.6.2
-
-end
-write memory
-
-            </div>
+export default function RootLayout() {
+  return (
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="login" options={{ headerShown: false }} />
+    </Stack>
+  );
+}             </div>
         </div>
 
         <div class="content-div">
             <div id="textToCopy2" style="color: white;">
-!Router B
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
-enable
-configure terminal
+export default function LoginScreen() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-! Set hostname
-hostname RouterB
+  const handleLogin = () => {
+    if (!email || !password) {
+      Alert.alert('Error', 'Please fill in all fields');
+      return;
+    }
+    
+    // Simple validation - accept any email/password
+    router.push('/login');
+  };
 
-! Assign IP to GigabitEthernet0/0 (LAN)
-interface GigabitEthernet0/0
-ip address 22.122.63.1 255.255.255.0
-no shutdown
-exit
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Login</Text>
+        <Text style={styles.subtitle}>Welcome back!</Text>
+      </View>
 
-! Assign IP to GigabitEthernet0/1 (Link to Router A)
-interface GigabitEthernet0/1
-ip address 221.22.6.2 255.255.255.252
-no shutdown
-exit
+      <View style={styles.form}>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Email</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your email"
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+            autoCapitalize="none"
+          />
+        </View>
 
-! Enable DHCP Service
-service dhcp
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Password</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry
+            autoCapitalize="none"
+          />
+        </View>
 
-! Configure DHCP Pool for local LAN
-ip dhcp pool CampusB
-network 22.122.63.0 255.255.255.0
-default-router 22.122.63.1
-dns-server 8.8.8.8
-exit
+        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+          <Text style={styles.loginButtonText}>Login</Text>
+        </TouchableOpacity>
 
-! Exclude static IPs (e.g., FTP servers, printers)
-ip dhcp excluded-address 22.122.63.2 22.122.63.20
+        <View style={styles.demoInfo}>
+          <Text style={styles.demoText}>Demo: Enter any email and password</Text>
+        </View>
+      </View>
+    </View>
+  );
+}
 
-! Add static route to Router A's network
-ip route 221.22.63.0 255.255.255.0 221.22.6.1
-
-end
-write memory
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    padding: 20,
+  },
+  header: {
+    alignItems: 'center',
+    marginTop: 100,
+    marginBottom: 50,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#666',
+  },
+  form: {
+    flex: 1,
+  },
+  inputContainer: {
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: 8,
+  },
+  input: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    fontSize: 16,
+  },
+  loginButton: {
+    backgroundColor: '#007AFF',
+    borderRadius: 8,
+    paddingVertical: 16,
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  loginButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  demoInfo: {
+    marginTop: 30,
+    alignItems: 'center',
+  },
+  demoText: {
+    fontSize: 14,
+    color: '#666',
+    textAlign: 'center',
+  },
+}); 
             </div>
         </div>
 
         <div class="content-div">
             <div id="textToCopy3" style="color: white;">
 
-FTP servers and printer
-                
-Campus A (Router A’s LAN – 221.22.63.0/24):
-FTP 1: 221.22.63.2
-FTP 2: 221.22.63.3
-Printer 1: 221.22.63.4
-Printer 2: 221.22.63.5
-Subnet Mask: 255.255.255.0
-Gateway: 221.22.63.1
-                
-Campus B (Router B’s LAN – 22.122.63.0/24):
-FTP 1: 22.122.63.2
-FTP 2: 22.122.63.3
-Printer 1: 22.122.63.4
-Printer 2: 22.122.63.5
-Subnet Mask: 255.255.255.0
-Gateway: 22.122.63.1
-               </div>
+import { router } from 'expo-router';
+import React from 'react';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+export default function HomeScreen() {
+  const handleLogout = () => {
+    Alert.alert(
+      'Logout',
+      'Are you sure you want to logout?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { 
+          text: 'Logout', 
+          style: 'destructive',
+          onPress: () => router.push('/')
+        },
+      ]
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Welcome!</Text>
+        <Text style={styles.subtitle}>You have successfully logged in</Text>
+      </View>
+
+      <View style={styles.content}>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Dashboard</Text>
+          <Text style={styles.cardText}>
+            This is your home page after login. You can add your content here.
+          </Text>
+        </View>
+
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Features</Text>
+          <Text style={styles.cardText}>
+            • Stack Navigation{'\n'}
+            • Login/Logout Flow{'\n'}
+            • Basic UI Components
+          </Text>
+        </View>
+      </View>
+
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+        <Text style={styles.logoutButtonText}>Logout</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    padding: 20,
+  },
+  header: {
+    alignItems: 'center',
+    marginTop: 60,
+    marginBottom: 40,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#666',
+  },
+  content: {
+    flex: 1,
+  },
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 20,
+    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  cardTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: 10,
+  },
+  cardText: {
+    fontSize: 14,
+    color: '#666',
+    lineHeight: 20,
+  },
+  logoutButton: {
+    backgroundColor: '#ff3b30',
+    borderRadius: 8,
+    paddingVertical: 16,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  logoutButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+});                </div>
         </div>
 
         <div class="content-div">
