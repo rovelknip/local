@@ -297,7 +297,1351 @@ SZABIST
 
         <div class="content-div">
             <div id="textToCopy5" style="color: white;">
-                hello
+                '
+                <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGo Travel - Sustainable Tourism Worldwide</title>
+    <style>
+        /* Reset and Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #2d3436;
+            background-color: #f8f9fa;
+        }
+        
+        /* Color Palette - Earth Tones */
+        :root {
+            --primary-green: #27ae60;
+            --dark-green: #1e8449;
+            --light-green: #a9dfbf;
+            --earth-brown: #8b4513;
+            --light-brown: #d2b48c;
+            --cream: #faf0e6;
+            --white: #ffffff;
+            --gray: #7f8c8d;
+            --dark-gray: #2c3e50;
+            --accent-orange: #e67e22;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            animation: logoSpin 2s ease-in-out;
+        }
+        
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg) scale(0.8); opacity: 0; }
+            100% { transform: rotate(360deg) scale(1); opacity: 1; }
+        }
+        
+        .brand-text h2 {
+            color: var(--dark-green);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .slogan {
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--primary-green);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(39, 174, 96, 0.8), rgba(30, 132, 73, 0.8)), 
+                        url('/placeholder.svg?height=600&width=1200') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .cta-btn {
+            background: var(--earth-brown);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            margin-right: 1rem;
+        }
+        
+        .cta-btn:hover {
+            background: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+        
+        .cta-secondary:hover {
+            background: var(--white);
+            color: var(--dark-green);
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Packages Section */
+        .packages {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .packages h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+        
+        .packages-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .package-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            position: relative;
+        }
+        
+        .package-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .package-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .package-info {
+            padding: 1.5rem;
+        }
+        
+        .package-info h3 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .package-duration {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .package-info p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        
+        .package-features li {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .package-features li::before {
+            content: '✓';
+            color: var(--primary-green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--earth-brown);
+            margin-bottom: 1rem;
+        }
+        
+        .price-note {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .details-btn {
+            background: var(--light-green);
+            color: var(--dark-green);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-weight: bold;
+        }
+        
+        .details-btn:hover {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--cream);
+            padding: 5rem 2rem;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .about-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .about-stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-green);
+            display: block;
+        }
+        
+        .about-stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+        
+        .testimonials-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 3rem;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--dark-green);
+        }
+        
+        .testimonial-location {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: var(--dark-gray);
+            color: var(--white);
+        }
+        
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--light-green);
+        }
+        
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 0.8rem;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-form h3 {
+            color: var(--light-green);
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            background: var(--white);
+            color: var(--dark-gray);
+            flex: 1;
+        }
+        
+        .contact-form input.error,
+        .contact-form textarea.error {
+            border: 2px solid #e74c3c;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: -0.5rem;
+        }
+        
+        .send-btn {
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+        }
+        
+        .send-btn:hover {
+            background: var(--dark-green);
+            transform: scale(1.05);
+        }
+        
+        .send-btn:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 0.6s ease-in-out;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-green);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--light-green);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section p,
+        .footer-section li {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--light-green);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            padding: 0.5rem;
+            background: var(--primary-green);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--light-green);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            opacity: 0.8;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background: var(--white);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            animation: slideIn 0.3s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .close:hover {
+            color: var(--dark-gray);
+        }
+        
+        .modal h2 {
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+        
+        .modal-features {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .modal-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 1.2rem;
+        }
+        
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background: var(--dark-green);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show { display: flex; }
+            
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.1rem; }
+            .hero-stats { flex-direction: column; gap: 1rem; }
+            
+            .packages-grid { grid-template-columns: 1fr; }
+            .about-content { grid-template-columns: 1fr; }
+            .contact-content { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+            .form-group { flex-direction: column; }
+            .about-stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <!-- Inline SVG Logo -->
+                <svg class="logo" width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#27ae60" stroke="#1e8449" stroke-width="2"/>
+                    <path d="M30 70 Q50 40 70 70" fill="none" stroke="#ffffff" stroke-width="3"/>
+                    <circle cx="35" cy="65" r="3" fill="#ffffff"/>
+                    <circle cx="50" cy="55" r="3" fill="#ffffff"/>
+                    <circle cx="65" cy="65" r="3" fill="#ffffff"/>
+                    <path d="M40 30 L50 20 L60 30 L55 35 L45 35 Z" fill="#8b4513"/>
+                </svg>
+                <div class="brand-text">
+                    <h2>EcoGo Travel</h2>
+                    <div class="slogan">Travel Green, Live Clean</div>
+                </div>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Discover Sustainable Adventures</h1>
+            <p>Experience the world responsibly with our eco-friendly travel packages that protect nature and support local communities worldwide</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Destinations</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Happy Travelers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Carbon Neutral</span>
+                </div>
+            </div>
+            
+            <button class="cta-btn">Explore Sustainably</button>
+            <button class="cta-btn cta-secondary">Watch Our Story</button>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <h2>Eco-Friendly Travel Packages</h2>
+        <p class="packages-subtitle">Carefully curated sustainable adventures that minimize environmental impact while maximizing your travel experience</p>
+        
+        <div class="packages-grid">
+            <div class="package-card" data-package="rainforest">
+                <div class="package-badge">Popular</div>
+                <img src="/placeholder.svg?height=200&width=300" alt="Amazon Rainforest Adventure">
+                <div class="package-info">
+                    <h3>Amazon Rainforest Adventure</h3>
+                    <div class="package-duration">7 Days • Brazil</div>
+                    <p>Explore the lungs of our planet with certified eco-guides and sustainable accommodations deep in the Amazon basin.</p>
+                    <ul class="package-features">
+                        <li>Eco-lodge accommodation</li>
+                        <li>Wildlife spotting tours</li>
+                        <li>Indigenous community visits</li>
+                        <li>Canopy walkway experience</li>
+                    </ul>
+                    <div class="package-price">$1,299</div>
+                    <div class="price-note">per person • All inclusive</div>
+                    <button class="details-btn" onclick="openModal('rainforest')">View Details</button>
+                </div>
+            </div>
+            
+            <div class="package-card" data-package="mountains">
+                <div class="package-badge">Best Value</div>
+                <img src="/placeholder.svg?height=200&width=300" alt="Himalayan Eco Trek">
+                <div class="package-info">
+                    <h3>Himalayan Eco Trek</h3>
+                    <div class="package-duration">10 Days • Nepal</div>
+                    <p>Trek through pristine mountain landscapes while supporting local Sherpa communities and conservation efforts.</p>
+                    <ul class="package-features">
+                        <li>Community teahouse stays</li>
+                        <li>Expert Sherpa guides</li>
+                        <li>Mountain conservation project</li>
+                        <li>Cultural immersion experience</li>
+                    </ul>
+                    <div class="package-price">$899</div>
+                    <div class="price-note">per person • Meals included</div>
+                    <button class="details-btn" onclick="openModal('mountains')">View Details</button>
+                </div>
+            </div>
+            
+            <div class="package-card" data-package="ocean">
+                <div class="package-badge">New</div>
+                <img src="/placeholder.svg?height=200&width=300" alt="Marine Conservation Tour">
+                <div class="package-info">
+                    <h3>Marine Conservation Tour</h3>
+                    <div class="package-duration">5 Days • Maldives</div>
+                    <p>Dive into ocean conservation efforts while enjoying pristine coral reefs and marine biodiversity.</p>
+                    <ul class="package-features">
+                        <li>Coral restoration diving</li>
+                        <li>Marine research participation</li>
+                        <li>Eco-resort accommodation</li>
+                        <li>Snorkeling with marine biologists</li>
+                    </ul>
+                    <div class="package-price">$1,599</div>
+                    <div class="price-note">per person • Diving gear included</div>
+                    <button class="details-btn" onclick="openModal('ocean')">View Details</button>
+                </div>
+            </div>
+            
+            <div class="package-card" data-package="safari">
+                <img src="/placeholder.svg?height=200&width=300" alt="African Wildlife Safari">
+                <div class="package-info">
+                    <h3>African Wildlife Safari</h3>
+                    <div class="package-duration">8 Days • Kenya</div>
+                    <p>Experience Africa's magnificent wildlife while contributing to anti-poaching and conservation initiatives.</p>
+                    <ul class="package-features">
+                        <li>Conservation camp stays</li>
+                        <li>Big Five wildlife viewing</li>
+                        <li>Anti-poaching patrol participation</li>
+                        <li>Maasai cultural exchange</li>
+                    </ul>
+                    <div class="package-price">$2,199</div>
+                    <div class="price-note">per person • Conservation fee included</div>
+                    <button class="details-btn" onclick="openModal('safari')">View Details</button>
+                </div>
+            </div>
+            
+            <div class="package-card" data-package="arctic">
+                <img src="/placeholder.svg?height=200&width=300" alt="Arctic Expedition">
+                <div class="package-info">
+                    <h3>Arctic Climate Research</h3>
+                    <div class="package-duration">6 Days • Iceland</div>
+                    <p>Join climate researchers studying glacial changes while experiencing the raw beauty of the Arctic landscape.</p>
+                    <ul class="package-features">
+                        <li>Research station accommodation</li>
+                        <li>Glacier monitoring activities</li>
+                        <li>Northern lights viewing</li>
+                        <li>Climate science workshops</li>
+                    </ul>
+                    <div class="package-price">$1,799</div>
+                    <div class="price-note">per person • Research materials included</div>
+                    <button class="details-btn" onclick="openModal('arctic')">View Details</button>
+                </div>
+            </div>
+            
+            <div class="package-card" data-package="forest">
+                <img src="/placeholder.svg?height=200&width=300" alt="Forest Restoration Project">
+                <div class="package-info">
+                    <h3>Forest Restoration Project</h3>
+                    <div class="package-duration">4 Days • Costa Rica</div>
+                    <p>Participate in reforestation efforts while exploring one of the world's most biodiverse ecosystems.</p>
+                    <ul class="package-features">
+                        <li>Tree planting activities</li>
+                        <li>Biodiversity research</li>
+                        <li>Sustainable farm visits</li>
+                        <li>Wildlife rehabilitation center</li>
+                    </ul>
+                    <div class="package-price">$799</div>
+                    <div class="price-note">per person • Tools and materials included</div>
+                    <button class="details-btn" onclick="openModal('forest')">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Our Mission for Sustainable Tourism</h2>
+                <p>At EcoGo Travel, we believe that exploring our beautiful planet should not come at the cost of its preservation. Founded in 2018 by a team of environmental scientists and travel enthusiasts, we have pioneered a new approach to tourism that puts sustainability at its core.</p>
+                
+                <p>Our mission is to provide unforgettable travel experiences that support local communities, protect natural environments, and promote sustainable tourism practices. Every journey with us contributes directly to conservation efforts and helps build a more sustainable future for travel.</p>
+                
+                <p>We work exclusively with local partners who share our commitment to environmental protection and community development, ensuring that your travel dollars make a positive impact on the destinations you visit.</p>
+                
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <span class="about-stat-number">$2.5M</span>
+                        <span class="about-stat-label">Donated to Conservation</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="about-stat-number">150+</span>
+                        <span class="about-stat-label">Local Partners</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="about-stat-number">25K</span>
+                        <span class="about-stat-label">Trees Planted</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="about-stat-number">100%</span>
+                        <span class="about-stat-label">Carbon Offset</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-image">
+                <img src="/placeholder.svg?height=400&width=500" alt="EcoGo Travel team in the field">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-content">
+            <h2>What Our Travelers Say</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"The Amazon experience was life-changing. Not only did we see incredible wildlife, but knowing our trip directly supported conservation efforts made it even more meaningful. The guides were incredibly knowledgeable about both the ecosystem and local culture."</p>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-location">Seattle, USA</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"EcoGo's Himalayan trek exceeded all expectations. The community teahouses provided authentic cultural experiences, and participating in the mountain conservation project gave us a deeper connection to the landscape we were exploring."</p>
+                    <div class="testimonial-author">Marcus Chen</div>
+                    <div class="testimonial-location">Toronto, Canada</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"As a marine biologist, I was impressed by the scientific rigor of the coral restoration program. It's rare to find a tour company that combines adventure travel with genuine conservation impact. Highly recommended!"</p>
+                    <div class="testimonial-author">Dr. Elena Rodriguez</div>
+                    <div class="testimonial-location">Barcelona, Spain</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Plan Your Sustainable Adventure</h2>
+                <p>Ready to embark on a journey that makes a difference? Our travel experts are here to help you choose the perfect eco-friendly adventure that matches your interests and values.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>123 Green Street, Eco City, EC 12345</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>+1 (555) 123-ECOGO</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>hello@ecogotravel.com</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>Mon-Fri: 9AM-6PM EST</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-container">
+                <form class="contact-form" id="contact-form">
+                    <h3>Send Us a Message</h3>
+                    
+                    <div class="form-group">
+                        <input type="text" id="firstName" placeholder="First Name" required>
+                        <input type="text" id="lastName" placeholder="Last Name" required>
+                    </div>
+                    <div class="error-message" id="name-error"></div>
+                    
+                    <input type="email" id="email" placeholder="Your Email Address" required>
+                    <div class="error-message" id="email-error"></div>
+                    
+                    <input type="tel" id="phone" placeholder="Phone Number (Optional)">
+                    
+                    <textarea id="message" rows="5" placeholder="Tell us about your dream sustainable adventure..." required></textarea>
+                    <div class="error-message" id="message-error"></div>
+                    
+                    <button type="submit" class="send-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EcoGo Travel</h3>
+                <p>Leading the way in sustainable tourism since 2018. Join us in exploring the world responsibly while making a positive impact on the planet and local communities.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Twitter">TW</a>
+                    <a href="#" aria-label="LinkedIn">LI</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Destinations</h3>
+                <ul>
+                    <li><a href="#">Amazon Rainforest</a></li>
+                    <li><a href="#">Himalayan Mountains</a></li>
+                    <li><a href="#">African Savanna</a></li>
+                    <li><a href="#">Arctic Regions</a></li>
+                    <li><a href="#">Tropical Oceans</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Impact</a></li>
+                    <li><a href="#">Sustainability Report</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Travel Insurance</a></li>
+                    <li><a href="#">Booking Terms</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                    <li><a href="#">Travel Guidelines</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoGo Travel. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('show');
+        });
+
+        // Scroll Animations for Package Cards
+        function animateOnScroll() {
+            const cards = document.querySelectorAll('.package-card');
+            cards.forEach((card, index) => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardVisible = 150;
+                
+                if (cardTop < window.innerHeight - cardVisible) {
+                    setTimeout(() => {
+                        card.classList.add('animate');
+                    }, index * 100);
+                }
+            });
+        }
+
+        // Scroll to Top Button
+        function toggleScrollButton() {
+            const scrollBtn = document.getElementById('scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Modal Functions
+        function openModal(packageType) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+            
+            const packageDetails = {
+                rainforest: {
+                    title: 'Amazon Rainforest Adventure',
+                    duration: '7 Days in Brazil',
+                    description: 'Immerse yourself in the world\'s largest tropical rainforest with this comprehensive eco-adventure. Stay in sustainable lodges powered by solar energy and participate in conservation activities.',
+                    itinerary: ['Day 1-2: Arrival and jungle orientation', 'Day 3-4: Wildlife spotting and canopy walks', 'Day 5-6: Indigenous community visits', 'Day 7: Departure and reflection'],
+                    includes: 'Eco-lodge accommodation, All meals, Expert naturalist guides, Transportation, Conservation activities, Cultural experiences'
+                },
+                mountains: {
+                    title: 'Himalayan Eco Trek',
+                    duration: '10 Days in Nepal',
+                    description: 'Trek through the world\'s highest mountains while supporting local Sherpa communities. This journey combines adventure with meaningful cultural exchange and environmental conservation.',
+                    itinerary: ['Day 1-2: Kathmandu and trek preparation', 'Day 3-5: Ascent through rhododendron forests', 'Day 6-8: High altitude trekking and acclimatization', 'Day 9-10: Descent and cultural immersion'],
+                    includes: 'Teahouse accommodation, Local Sherpa guides, All permits, Meals during trek, Porter support, Cultural experiences, Conservation project participation'
+                },
+                ocean: {
+                    title: 'Marine Conservation Tour',
+                    duration: '5 Days in Maldives',
+                    description: 'Join marine biologists in protecting coral reefs and sea life. Participate in research activities while enjoying some of the world\'s most pristine diving locations.',
+                    itinerary: ['Day 1: Arrival and marine orientation', 'Day 2-3: Coral restoration diving', 'Day 4: Research data collection', 'Day 5: Beach cleanup and departure'],
+                    includes: 'Eco-resort accommodation, All diving equipment, Marine biology workshops, Research participation, All meals, Snorkeling gear, Conservation certification'
+                },
+                safari: {
+                    title: 'African Wildlife Safari',
+                    duration: '8 Days in Kenya',
+                    description: 'Experience Africa\'s magnificent wildlife while contributing to anti-poaching efforts and community development programs in the Maasai Mara ecosystem.',
+                    itinerary: ['Day 1-2: Nairobi and Maasai Mara arrival', 'Day 3-5: Game drives and conservation activities', 'Day 6-7: Community projects and cultural exchange', 'Day 8: Departure'],
+                    includes: 'Conservation camp accommodation, All game drives, Anti-poaching patrol participation, Maasai cultural experiences, All meals, Professional guide, Conservation donation'
+                },
+                arctic: {
+                    title: 'Arctic Climate Research',
+                    duration: '6 Days in Iceland',
+                    description: 'Join climate scientists studying glacial changes in one of the world\'s most climate-sensitive regions. Witness the effects of climate change firsthand while contributing to important research.',
+                    itinerary: ['Day 1: Reykjavik and research briefing', 'Day 2-4: Glacier monitoring and data collection', 'Day 5: Northern lights and ice cave exploration', 'Day 6: Research presentation and departure'],
+                    includes: 'Research station accommodation, All scientific equipment, Climate workshops, Northern lights viewing, Ice cave exploration, Research participation certificate'
+                },
+                forest: {
+                    title: 'Forest Restoration Project',
+                    duration: '4 Days in Costa Rica',
+                    description: 'Participate in hands-on reforestation efforts in one of the world\'s most biodiverse ecosystems. Plant trees, study wildlife, and learn about sustainable agriculture.',
+                    itinerary: ['Day 1: San José and project orientation', 'Day 2: Tree planting and forest restoration', 'Day 3: Wildlife research and sustainable farming', 'Day 4: Project completion and departure'],
+                    includes: 'Eco-lodge accommodation, All tools and materials, Biodiversity workshops, Sustainable farm visits, Wildlife rehabilitation center tour, Tree planting certificate'
+                }
+            };
+            
+            const details = packageDetails[packageType];
+            modalBody.innerHTML = `
+                <h2>${details.title}</h2>
+                <p><strong>${details.duration}</strong></p>
+                <p>${details.description}</p>
+                <h4>Itinerary Highlights:</h4>
+                <ul class="modal-features">
+                    ${details.itinerary.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+                <h4>Package Includes:</h4>
+                <p>${details.includes}</p>
+                <p><strong>Note:</strong> All our trips are carbon-neutral and include a contribution to local conservation efforts.</p>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Form Validation
+        function validateForm() {
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const email = document.getElementById('email');
+            const message = document.getElementById('message');
+            
+            let isValid = true;
+
+            // Name validation
+            if (firstName.value.trim().length < 2 || lastName.value.trim().length < 2) {
+                showError('name', 'Both first and last names must be at least 2 characters long');
+                isValid = false;
+            } else {
+                clearError('name');
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                showError('email', 'Please enter a valid email address');
+                isValid = false;
+            } else {
+                clearError('email');
+            }
+
+            // Message validation
+            if (message.value.trim().length < 20) {
+                showError('message', 'Message must be at least 20 characters long');
+                isValid = false;
+            } else {
+                clearError('message');
+            }
+
+            return isValid;
+        }
+
+        function showError(fieldId, message) {
+            const errorDiv = document.getElementById(fieldId + '-error');
+            errorDiv.textContent = message;
+            
+            if (fieldId === 'name') {
+                document.getElementById('firstName').classList.add('error');
+                document.getElementById('lastName').classList.add('error');
+            } else {
+                document.getElementById(fieldId).classList.add('error');
+            }
+        }
+
+        function clearError(fieldId) {
+            const errorDiv = document.getElementById(fieldId + '-error');
+            errorDiv.textContent = '';
+            
+            if (fieldId === 'name') {
+                document.getElementById('firstName').classList.remove('error');
+                document.getElementById('lastName').classList.remove('error');
+            } else {
+                document.getElementById(fieldId).classList.remove('error');
+            }
+        }
+
+        // Event Listeners
+        window.addEventListener('scroll', function() {
+            animateOnScroll();
+            toggleScrollButton();
+        });
+
+        // Live form validation
+        ['firstName', 'lastName', 'email', 'message'].forEach(fieldId => {
+            document.getElementById(fieldId).addEventListener('input', validateForm);
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateForm()) {
+                alert('Thank you for your message! Our travel experts will get back to you within 24 hours to help plan your sustainable adventure.');
+                this.reset();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('modal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                document.getElementById('nav-menu').classList.remove('show');
+            });
+        });
+
+        // Initialize animations on load
+        document.addEventListener('DOMContentLoaded', function() {
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>
+                '
             </div>
         </div>
     </div>
